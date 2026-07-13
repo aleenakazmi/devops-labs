@@ -1,4 +1,4 @@
-variable "var" {
+variable "map_type" {
     type = map
     default = {
         name = "Aleena"
@@ -7,5 +7,5 @@ variable "var" {
 }
 
 output "variable_value" {
-    value = var.var
+    value = var.map_type
 }

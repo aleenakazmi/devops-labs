@@ -18,11 +18,16 @@ resource "aws_iam_user" "users" {
 
 variable "users" {
     type = list(string)
-    default = ["user1", "user2", "user3", "user4", "user5"]
+    default = ["user1", "user2", "user3"]
 }
 
 
 resource "aws_iam_user" "users_devops" {
     name = var.users[count.index]
     count = 3
+}
+
+//Splat expression
+output "user_arns" {
+    value = aws_iam_user.users_devops[*].arn
 }
